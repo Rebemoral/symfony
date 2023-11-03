@@ -10,7 +10,7 @@ class CalculatorController extends Controller
 {
     public function indexAction($age){
         $currentYear = date ('Y');
-        return new Response ('<html><body>Anio Actual: ' . $currentYear.
-        '<br/>Anio de nacimiento: ' . ($currentYear - $age) . '</body></html>');
+        $year = $currentYear - $age;
+        return $this->render('calculator/index.html.twig',array('year'=> $year));
     }
 }
