@@ -28,6 +28,17 @@ redirect_externa_index:
 get_temp:
     path: '/temperature/{id}'    
     defaults: {_controller: AppBundle:Temperature:get}
+    requirements:
+        id: \d+
+
+check_temp:
+    path: '/temperature/check'    
+    defaults: {_controller: AppBundle:Temperature:check}
+
+getall_temp:
+    path: '/temperature/getall'    
+    defaults: {_controller: AppBundle:Temperature:getAll}
+
 
 
 
