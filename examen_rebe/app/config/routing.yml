@@ -31,3 +31,6 @@ redirect_externa:
 loguearse:
     path: /loguearse/{name}
     defaults: {_controller: AppBundle:NetWork:singin, name:anonimo}
+idioma:
+    path: /idioma/{locale}
+    defaults: {_controller: AppBundle:NetWork:language}

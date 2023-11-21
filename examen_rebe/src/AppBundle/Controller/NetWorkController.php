@@ -15,4 +15,22 @@ class NetWorkController extends Controller
  
         return $this->render('sesion/index.html.twig', array('name'=>$name));
 }
+
+public function languageAction($locale, Request $req)
+    {
+        $session = $req->getSession();
+        if ($locale == 'es' || $locale == 'fr' || $locale == 'en') {
+            $idioma = $session->get('idioma', array());
+            $idioma = array($locale);
+            $session->set('idioma', $idioma);
+        }
+        $idiomaGuardado = $session->get('idioma', array());
+        if (in_array('es', $idiomaGuardado)) {
+            return $this->render('idioma/index.html.twig', array('saludo' => 'Hola'));
+        } elseif (in_array('fr', $idiomaGuardado)) {
+            return $this->render('idioma/index.html.twig', array('saludo' => 'Bonjour'));
+        } else {
+            return $this->render('idioma/index.html.twig', array('saludo' => 'Hello'));
+        }
+    }
 }
