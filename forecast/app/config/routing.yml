@@ -4,43 +4,52 @@ forecast_simple:
 forecast_param:
     path: '/forecast/{weather}'
     defaults: {_controller: AppBundle:Forecast:indexParam, weather: nuboso}
-
 forecast_2_param:
     path: '/forecast/{weather}/{temperature}'
-    defaults: {_controller: AppBundle:Forecast:index2Params, weather: nuboso, temperature: 12}
-
-
+    defaults: {_controller: AppBundle:Forecast:index2Param, weather: nuboso, temperature: 15}
+forecast_request_param:
+    path: '/forecast/indexRequest/{weather}/{temperature}'
+    defaults: {_controller: AppBundle:Forecast:indexRequest, weather: nuboso, temperature: 15}
 redirect_index:
-    path: '/redirect/index'
-    defaults: {_controller: AppBundle:Redirect:index}
+    path: /redirect/index
+    defaults: {_controller: AppBundle:Redirect:Index}
 redirect_interna_index:
-    path: '/redirectinterna/index'
+    path: /redirectinterna/index
     defaults: {_controller: AppBundle:Redirect:internalRedirect}
-
-redirect_permanente: 
-    path: '/redirectpermanente/index'    
+redirect_permanente:
+    path: /redirectpermanente/index
     defaults: {_controller: AppBundle:Redirect:internalRedirectPermanent}
-
-redirect_externa_index: 
-    path: '/redirectexterna/index'    
+redirect_externa:
+    path: /redirectexterna/index
     defaults: {_controller: AppBundle:Redirect:externalRedirect}
-
 get_temp:
-    path: '/temperature/{id}'    
+    path: /temperature/{id}
     defaults: {_controller: AppBundle:Temperature:get}
     requirements:
         id: \d+
-
 check_temp:
-    path: '/temperature/check'    
+    path: /temperature/check
     defaults: {_controller: AppBundle:Temperature:check}
-
 getall_temp:
-    path: '/temperature/getall'    
+    path: /temperature/getall
     defaults: {_controller: AppBundle:Temperature:getAll}
+location_index:
+    path: /location/index
+    defaults: {_controller: AppBundle:Location:index}
 
+respuesta_json:
+    path: /location/json
+    defaults: {_controller: AppBundle:Location:indexJson}
 
-
-
+standalone:
+    path: "/standalone"
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: standalone/index.html.twig
+        maxAge: 86400
+        sharedAge: 86400
+forward_index:
+    path: /forward
+    defaults: {_controller: AppBundle:Forward:index}
 
 

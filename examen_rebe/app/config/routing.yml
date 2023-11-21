@@ -1,0 +1,33 @@
+mensaje:
+    path: mensaje/{mensaje}
+    defaults: {_controller: AppBundle:Mensaje:enviarMensaje}
+mensajePlantilla:
+    path: mensajePlantilla/{mensaje}
+    defaults: {_controller: AppBundle:Mensaje:enviarMensajePlantilla}
+sumar:
+    path: sumar/{numero1}/{numero2}
+    defaults: {_controller: AppBundle:Operaciones:sumar}
+restar:
+    path: restar/{numero1}/{numero2}
+    defaults: {_controller: AppBundle:Operaciones:restar}
+multiplicar:
+    path: multiplicar/{numero1}/{numero2}
+    defaults: {_controller: AppBundle:Operaciones:multiplicar}
+dividir:
+    path: dividir/{numero1}/{numero2}
+    defaults: {_controller: AppBundle:Operaciones:dividir}
+redirect_index:
+    path: /redirect/index
+    defaults: {_controller: AppBundle:Redireccion:Index}
+redirect_interna_index:
+    path: /redirectinterna/index
+    defaults: {_controller: AppBundle:Redireccion:internalRedirect}
+redirect_permanente:
+    path: /redirectpermanente/index
+    defaults: {_controller: AppBundle:Redireccion:internalRedirectPermanent}
+redirect_externa:
+    path: /redirectexterna/index
+    defaults: {_controller: AppBundle:Redireccion:externalRedirect}
+loguearse:
+    path: /loguearse/{name}
+    defaults: {_controller: AppBundle:NetWork:singin, name:anonimo}
