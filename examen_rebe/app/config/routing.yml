@@ -34,3 +34,6 @@ loguearse:
 idioma:
     path: /idioma/{locale}
     defaults: {_controller: AppBundle:NetWork:language}
+bienvenida:
+    path: /bienvenida
+    defaults: {_controller: AppBundle:NetWork:profile}

@@ -10,6 +10,7 @@ class NetWorkController extends Controller
     public function singinAction($name, Request $req){
         $sesion = $req->getSession();
         $nombre = $sesion->get('name', array());
+        $nombre = array();
         array_push($nombre, $name);
         $sesion->set('name',$nombre);
  
@@ -31,6 +32,21 @@ public function languageAction($locale, Request $req)
             return $this->render('idioma/index.html.twig', array('saludo' => 'Bonjour'));
         } else {
             return $this->render('idioma/index.html.twig', array('saludo' => 'Hello'));
+        }
+    }
+
+public function profileAction(Request $req)
+    {
+        $session = $req->getSession();
+        $nombre = $session->get('name', '');
+        $idioma = $session->get('idioma', '');
+ 
+        if (in_array('en', $idioma)) {
+            return $this->render('bienvenida/inglesindex.html.twig', array('name' => implode($nombre)));
+        } elseif (in_array('fr', $idioma)) {
+            return $this->render('bienvenida/francesindex.html.twig', array('name' => implode($nombre)));
+        } else {
+            return $this->render('bienvenida/españolindex.html.twig', array('name' => implode($nombre)));
         }
     }
 }
