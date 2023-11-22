@@ -30,10 +30,17 @@ redirect_externa:
     defaults: {_controller: AppBundle:Redireccion:externalRedirect}
 loguearse:
     path: /loguearse/{name}
-    defaults: {_controller: AppBundle:NetWork:singin, name:anonimo}
+    defaults: {_controller: AppBundle:NetWork:singin, name: anonimo}
 idioma:
     path: /idioma/{locale}
     defaults: {_controller: AppBundle:NetWork:language}
 bienvenida:
     path: /bienvenida
     defaults: {_controller: AppBundle:NetWork:profile}
+ejerciciofinal1:
+    path: /login/{user}/{psw}
+    defaults: {_controller: AppBundle:Sesion:login}
+ 
+ejerciciofinal1redirect:
+    path: /login/redirect
+    defaults: {_controller: AppBundle:Sesion:fallo}
